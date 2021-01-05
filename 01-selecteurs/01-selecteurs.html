@@ -8,11 +8,14 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- jQuery en local en version complète -->
+  <script src="../jquery/jquery-3.5.1.js"></script>
   </head>
 
-<body class="bg-secondary">
+<body class="bg-info">
   <!-- Navbar bootstrap  -->
-  <nav class="navbar navbar-expand-lg navbar-light bg-dark">
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand text-white" href="#">jQuery</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -38,7 +41,7 @@
     </div>
   </nav> <!-- fin de la navbar -->
 
-  <main class="container bg-light my-4 p-4">
+  <main class="container bg-light p-4">
       <header class="jumbotron">
           <h1 class="display-4">Cours jQuery - Sélecteurs</h1>
           <p class="lead">Write less, do more</p>
@@ -78,7 +81,86 @@
             </figure>
           </div><!-- fin col -->
         </div><!-- fin row -->
-      </section>
+
+        <div class="row border border-warning py-4">
+          <div class="col-md-12">
+            <h3>Il existe trois manières, de plus en plus simples, d'appeler JQuery</h3>
+          </div><!-- fin col -->
+
+          <div class="col-md-4"><code>
+            &lt;script><br>
+            jQuery(document).ready(function(){<br>
+            // code <br>
+            });
+            &lt;/script></code>
+          </div><!-- fin col -->
+
+          <div class="col-md-4"><code>&lt;script><br>
+            jQuery(function(){<br>
+            // code<br>
+            });
+            &lt;/script></code>
+          </div><!-- fin col -->
+
+          <div class="col-md-4"><code>&lt;script><br>
+            $(function(){<br>
+            //ici j'intègrerai du code jQuery<br>
+            });
+            &lt;/script></code>
+          </div><!-- fin col -->
+
+        </div><!-- fin row -->
+
+        <div class="row mt-4">
+          <div class="col-md-7">
+            <h2>Comment sélectionner des éléments ?</h2>
+            <ul>
+              <li><code>$('p');</code> // Je sélectionne tous les paragraphes</li>
+              <li><code>$('p:first');</code>// Je sélectionne le 1er p trouvé</li>
+              <li><code>$('p:last');</code>// Je sélectionne le dernier p trouvé</li>
+              <li><code>$('p[unP]');</code>// Je sélectionne un p avec l'identifiant #unP</li>
+              <li><code>$('p:eq(1)');</code>// Je sélectionne le deuxième paragraphe trouvé</li>
+              <li><code>$('p:not(.rouge)');</code>// Je sélectionne tous les sauf ceux qui ont la classe .rouge</li>
+              <li><code>$('.une-rouge');</code>// Je sélectionne tous les paragraphes ayant la classe .une-rouge</li>
+              <li><code>$('#monId');</code>// Je sélectionne un p avec l'identifiant #monId</li>
+              <li><code>$('p .unLien');</code>// Je sélectionne tous les éléments ayant la classe .unLine et descendants du p (enfants et petits enfants.</li>
+              <li><code>$('p > .unLien');</code>// Je sélectionne seulement les éléments ayant la classe .unLien et descendants directement du p (uniquement les enfants directs)</li>
+              <li><code>$('.unLien + .visite');</code>// Je sélectionne les éléments ayant pour classe .visite précédés immédiatement d'un élément ayant pour classe .unLien</li>
+              <li><code>$('.unLien ~ .visite');</code>// Je sélectionne les éléments ayant pour classe .visite et précédés ou pas d'un élément ayant pour classe .unLien</li>
+              <li>etc.</li>
+              <li><a href="http://creersonsiteweb.net/page-jquery-selecteurs">Voir la liste complète </a> </li>
+          </ul>
+          </div><!-- fin col -->
+
+          <div class="col-md-5">
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam esse quisquam, autem eligendi, eos libero aliquid natus excepturi, quaerat molestias quasi adipisci. <span class="unLien">Aperiam quia asperiores ex amet aliquid soluta debitis.</span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum aliquam libero <strong class="unLien">velit quisquam nam <span class="unLien">recusandae nesciunt</span> debitis nisi delectus</strong> repellendus quos numquam rem eveniet a pariatur, esse facilis vitae vel.</p>
+
+            <script> // pour un script inline avec du jquery, penser à mettre la feuille externe dans la balise head !!
+            // script pour expliquer la différence entre ('p .unLien) et ('p > .unLien')
+              console.log('test------------');
+
+              // test sélection
+              let exemple = $('p > .unLien');
+              console.log(exemple);
+            </script>
+
+            <div class="border border-warning p-2">
+              <ul>
+                  <li>sa balise : $("h4")  </li>
+                  <li>son #id : $("#mon_id") </li>
+                  <li> sa .class : $(".ma_class")</li>
+                  <li>par lui-même : $(this)  </li>
+                  <li>par le type : $("input:text")</li>
+                  <li>tous les types : $(":radio")</li>
+                  <li>par l'attribut : $("img[alt]")</li>
+                  <li>tous les attributs : $("[alt]")</li>
+                  <li>par le nom de l'attribut ET sa valeur : $("img[title="un chaton"]</li>
+                  <li>sélectionner plusieurs sélecteurs en même temps : $("h1, p, #monID"</li>
+              </ul>
+            </div>
+          </div><!-- fin col -->
+        </div><!-- fin row -->
+      </section> <!-- fin contenu principal -->
   </main>
 
 
@@ -88,8 +170,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   
-  <!-- jQuery en local en version complète -->
-  <script src="../jquery/jquery-3.5.1.js"></script>
+  
 
   <script>
 
@@ -150,9 +231,9 @@
     console.log('5-----');
 
     // sélectionner toutes les div et leru donner une bordure
-    $('div').css({
-      'border' : '1px solid lightgrey',
-    })
+    // $('div').css({
+    //   'border' : '1px solid lightgrey',
+    // })
 
     console.log('6-----');
 
@@ -192,7 +273,7 @@
     // Avec fonction
     let bouton = document.querySelector('.cache');
     function jumbotronOff() {
-      $('header').toggle('jumbotron');
+      $('header').toggleClass('jumbotron');
     }
     bouton.addEventListener('click', jumbotronOff);
     
@@ -224,6 +305,8 @@
       'color' : 'white',
       'background-color' : 'pink',
     });
+    
+    
 
   </script>
 </body>
